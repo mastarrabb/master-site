@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>мастер.ру — электрик для дома, квартиры и дачи</title>
+<meta name="description" content="Электромонтаж для частных заказчиков: розетки, щитки, проводка, поиск обрыва. Приедем, посмотрим, назовём цену до начала работ.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23BC8C22'/><path d='M6 26V6h4l6 8 6-8h4v20h-4V13l-6 8-6-8v13z' fill='white'/></svg>">
+<style>
+  :root{
+    /* палитра снята с логотипа */
+    --gold:#BC8C22;
+    --gold-deep:#8C6512;
+    --gold-wash:#F3E9D2;
+    --ink:#191712;
+    --steel:#33302A;
+    --muted:#736E63;
+    --line:#DEDACF;
+    --paper:#FBFAF7;
+    --panel:#F1EEE6;
+
+    --rail:56px;
+    --pad:clamp(20px,5vw,64px);
+    --maxw:1140px;
+
+    --display:800 clamp(34px,5.2vw,62px)/1.02 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --body:400 17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font:var(--body);
+    color:var(--ink);
+    background:var(--paper);
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit}
+
+  /* ─── ЛИНЕЙКА: подпись страницы, взята из логотипа ─── */
+  .rail{
+    position:fixed;top:0;left:0;bottom:0;width:var(--rail);
+    background:var(--paper);
+    border-right:1px solid var(--line);
+    z-index:40;
+    display:none;
+  }
+  .rail::before{
+    content:"";position:absolute;top:0;right:0;bottom:0;width:14px;
+    background:repeating-linear-gradient(
+      to bottom,
+      var(--line) 0 1px,
+      transparent 1px 14px
+    );
+  }
+  .rail::after{
+    content:"";position:absolute;top:0;right:0;bottom:0;width:26px;
+    background:repeating-linear-gradient(
+      to bottom,
+      var(--gold) 0 1.5px,
+      transparent 1.5px 70px
+    );
+    opacity:.55;
+  }
+  .rail-hole{
+    position:absolute;left:16px;width:12px;height:12px;border-radius:50%;
+    border:1.5px solid var(--line);
+  }
+  .rail-hole.top{top:28px}
+  .rail-hole.bot{bottom:28px}
+  .rail-word{
+    position:absolute;left:20px;top:50%;
+    transform:translateY(-50%) rotate(180deg);
+    writing-mode:vertical-rl;
+    font-size:11px;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--muted);
+  }
+  @media(min-width:1000px){
+    .rail{display:block}
+    body{padding-left:var(--rail)}
+  }
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+
+  /* ─── ШАПКА ─── */
+  header{
+    position:sticky;top:0;z-index:30;
+    background:rgba(251,250,247,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .bar{display:flex;align-items:center;gap:16px;padding:14px 0}
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex:1}
+  .mark{width:38px;height:38px;flex:none}
+  .brand b{font-size:19px;font-weight:800;letter-spacing:-.01em}
+  .brand span{display:block;font-size:11px;color:var(--muted);letter-spacing:.06em}
+  .hnav{display:none;gap:24px;font-size:15px}
+  .hnav a{text-decoration:none;color:var(--muted)}
+  .hnav a:hover{color:var(--ink)}
+  .htel{
+    display:none;text-decoration:none;font-weight:700;font-size:17px;
+    padding:10px 18px;border-radius:6px;background:var(--ink);color:#fff;
+  }
+  @media(min-width:900px){.hnav{display:flex}.htel{display:block}}
+
+  /* ─── ГЕРОЙ ─── */
+  .hero{padding:clamp(48px,7vw,88px) 0 clamp(40px,6vw,64px)}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--gold-deep);font-weight:700;margin-bottom:22px;
+  }
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--gold)}
+  h1{font:var(--display);letter-spacing:-.025em;max-width:15ch}
+  h1 em{font-style:normal;color:var(--gold-deep)}
+  .lead{margin-top:22px;max-width:52ch;font-size:19px;color:var(--muted)}
+
+  /* ─── КНОПКИ СВЯЗИ ─── */
+  .contact-stack{margin-top:34px;max-width:560px}
+  .call-plate{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:16px;flex-wrap:wrap;
+    padding:16px 16px 16px 22px;border-radius:8px;
+    background:var(--ink);color:#fff;
+    box-shadow:0 1px 0 var(--gold-deep), 0 10px 26px -14px rgba(0,0,0,.6);
+  }
+  .call-plate .num{
+    display:block;font-size:clamp(21px,3.4vw,27px);font-weight:800;
+    letter-spacing:-.01em;color:#fff;text-decoration:none;
+  }
+  .call-plate .num:hover{color:var(--gold)}
+  .call-plate .sub{
+    display:block;font-size:12px;color:#B9B3A6;
+    letter-spacing:.05em;margin-top:3px;
+  }
+  .call-btn{
+    display:inline-flex;align-items:center;gap:10px;flex:none;
+    padding:14px 22px;border-radius:7px;
+    background:var(--gold);color:#fff;text-decoration:none;
+    font-weight:700;font-size:16px;letter-spacing:.01em;
+    transition:background .15s ease, transform .15s ease;
+  }
+  .call-btn:hover{background:#D19E2C;transform:translateY(-1px)}
+  .call-btn svg{width:18px;height:18px;fill:#fff}
+  @media(max-width:520px){
+    .call-plate{padding:18px}
+    .call-btn{width:100%;justify-content:center}
+  }
+
+  .chips{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px}
+  @media(min-width:560px){.chips{grid-template-columns:repeat(4,1fr)}}
+  .chip{
+    display:flex;flex-direction:column;align-items:center;gap:6px;
+    padding:13px 6px;border:1px solid var(--line);border-radius:8px;
+    background:#fff;text-decoration:none;
+    font-size:13px;font-weight:600;color:var(--steel);
+    transition:border-color .15s ease, background .15s ease;
+  }
+  .chip:hover{border-color:var(--gold);background:var(--gold-wash)}
+  .chip svg{width:20px;height:20px;fill:var(--gold-deep)}
+
+  /* ─── СЕКЦИИ ─── */
+  section{padding:clamp(52px,7vw,86px) 0;border-top:1px solid var(--line)}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:34px}
+  .sec-head .tick{
+    font-size:12px;font-weight:700;color:var(--gold-deep);
+    letter-spacing:.14em;padding-top:4px;flex:none;
+  }
+  h2{font-size:clamp(26px,3.4vw,36px);font-weight:800;letter-spacing:-.02em}
+  .sec-note{margin-top:8px;color:var(--muted);font-size:16px}
+
+  /* ─── УСЛУГИ ─── */
+  .price-list{border-top:1px solid var(--line)}
+  .price-row{
+    display:flex;align-items:baseline;gap:12px;
+    padding:16px 0;border-bottom:1px solid var(--line);
+  }
+  .price-row .name{font-weight:600}
+  .price-row .dots{
+    flex:1;height:1px;margin-bottom:4px;
+    background:repeating-linear-gradient(to right,var(--line) 0 2px,transparent 2px 6px);
+  }
+  .price-row .val{font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .price-row .val small{font-weight:600;color:var(--muted);font-size:12px}
+  .price-foot{margin-top:18px;font-size:14px;color:var(--muted);max-width:60ch}
+
+  /* ─── МАСТЕРА ─── */
+  .masters{display:grid;gap:18px}
+  @media(min-width:760px){.masters{grid-template-columns:1fr 1fr}}
+  .master{
+    background:#fff;border:1px solid var(--line);border-radius:10px;
+    padding:22px;display:flex;gap:18px;align-items:flex-start;
+  }
+  .master .ph{
+    flex:none;width:84px;height:84px;border-radius:8px;
+    background:var(--panel);
+    display:grid;place-items:center;
+    color:var(--muted);font-size:11px;text-align:center;
+    border:1px solid var(--line);
+  }
+  .master h3{font-size:19px;font-weight:800}
+  .master .role{font-size:13px;color:var(--gold-deep);font-weight:700;margin:3px 0 10px;letter-spacing:.04em}
+  .master p{font-size:15px;color:var(--muted)}
+  .master .inn{
+    margin-top:10px;font-size:12px;color:var(--muted);
+    font-variant-numeric:tabular-nums;
+    padding-top:10px;border-top:1px solid var(--line);
+  }
+
+  /* ─── РАБОТЫ ─── */
+  .gallery{display:grid;gap:10px;grid-template-columns:repeat(2,1fr)}
+  @media(min-width:760px){.gallery{grid-template-columns:repeat(4,1fr)}}
+  .shot{
+    aspect-ratio:4/5;border-radius:8px;background:var(--panel);
+    border:1px solid var(--line);
+    display:grid;place-items:center;text-align:center;
+    color:var(--muted);font-size:12px;padding:10px;
+  }
+
+  /* ─── КАК РАБОТАЕМ ─── */
+  .steps{display:grid;gap:2px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  @media(min-width:760px){.steps{grid-template-columns:repeat(5,1fr)}}
+  .step{background:var(--paper);padding:22px 18px}
+  .step .n{
+    font-size:12px;font-weight:800;color:var(--gold-deep);
+    letter-spacing:.14em;margin-bottom:10px;
+  }
+  .step h4{font-size:16px;font-weight:700;margin-bottom:6px}
+  .step p{font-size:14px;color:var(--muted)}
+
+  /* ─── ЗАЯВКА ─── */
+  .form-block{background:var(--panel);border-radius:12px;padding:clamp(24px,4vw,40px)}
+  .form-grid{display:grid;gap:10px;margin-top:20px}
+  @media(min-width:640px){.form-grid{grid-template-columns:1fr 1fr auto}}
+  input[type=text],input[type=tel]{
+    font:inherit;padding:15px 16px;border:1px solid var(--line);
+    border-radius:7px;background:#fff;color:var(--ink);width:100%;
+  }
+  input:focus-visible,button:focus-visible,a:focus-visible{
+    outline:2px solid var(--gold);outline-offset:2px;
+  }
+  button[type=submit]{
+    font:inherit;font-weight:700;cursor:pointer;
+    padding:15px 28px;border:0;border-radius:7px;
+    background:var(--gold);color:#fff;white-space:nowrap;
+  }
+  button[type=submit]:hover{background:var(--gold-deep)}
+  .consent{display:flex;gap:9px;margin-top:14px;font-size:13px;color:var(--muted);align-items:flex-start}
+  .consent input{margin-top:3px;flex:none;accent-color:var(--gold)}
+  .consent a{color:var(--steel)}
+
+  /* ─── РАСКРЫТИЕ ИСПОЛНИТЕЛЯ ─── */
+  .disclose{
+    margin-top:26px;padding:18px 20px;
+    border-left:3px solid var(--gold);
+    background:#fff;border-radius:0 8px 8px 0;
+    font-size:14px;color:var(--muted);
+  }
+  .disclose b{color:var(--ink)}
+
+  /* ─── ПОДВАЛ ─── */
+  footer{border-top:1px solid var(--line);padding:44px 0;font-size:14px;color:var(--muted)}
+  .foot{display:grid;gap:22px}
+  @media(min-width:760px){.foot{grid-template-columns:1.4fr 1fr 1fr}}
+  .foot a{text-decoration:none}
+  .foot a:hover{text-decoration:underline}
+  .foot h5{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);margin-bottom:10px}
+  .foot ul{list-style:none;display:grid;gap:7px}
+  .copy{margin-top:32px;padding-top:20px;border-top:1px solid var(--line);font-size:13px}
+
+  @media(prefers-reduced-motion:reduce){
+    *{transition:none!important;scroll-behavior:auto!important}
+  }
+</style>
+</head>
+<body>
+
+<!-- ЛИНЕЙКА (подпись страницы, мотив из логотипа) -->
+<div class="rail" aria-hidden="true">
+  <div class="rail-hole top"></div>
+  <div class="rail-word">мастер.ру</div>
+  <div class="rail-hole bot"></div>
+</div>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top">
+      <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="6" fill="#BC8C22"/>
+        <path d="M11 53V11h5.5L32 30 47.5 11H53v42h-8.5V24.5L32 40 19.5 24.5V53z" fill="#fff"/>
+        <circle cx="15.2" cy="16" r="1.9" fill="#BC8C22"/>
+        <circle cx="15.2" cy="48.5" r="1.9" fill="#BC8C22"/>
+        <g fill="#BC8C22">
+          <rect x="48.5" y="16" width="4.5" height="1.2"/><rect x="50.5" y="20" width="2.5" height="1.2"/>
+          <rect x="48.5" y="24" width="4.5" height="1.2"/><rect x="50.5" y="28" width="2.5" height="1.2"/>
+          <rect x="48.5" y="32" width="4.5" height="1.2"/><rect x="50.5" y="36" width="2.5" height="1.2"/>
+          <rect x="48.5" y="40" width="4.5" height="1.2"/><rect x="50.5" y="44" width="2.5" height="1.2"/>
+          <rect x="48.5" y="48" width="4.5" height="1.2"/>
+        </g>
+      </svg>
+      <span>
+        <b>мастер.ру</b>
+        <span>электрика для частных домов</span>
+      </span>
+    </a>
+    <nav class="hnav">
+      <a href="#uslugi">Цены</a>
+      <a href="#mastera">Мастера</a>
+      <a href="#raboty">Работы</a>
+      <a href="#kontakty">Связаться</a>
+    </nav>
+    <a class="htel" href="tel:+79000000000">+7 900 000-00-00</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ГЕРОЙ -->
+  <div class="hero wrap">
+    <div class="eyebrow">Только частные заказы</div>
+    <h1>Приедем, посмотрим, назовём цену <em>до начала работ</em>.</h1>
+    <p class="lead">Розетки, щитки, проводка, поиск обрыва. Квартиры, дома и дачи. Работают два мастера — вы будете знать, кто именно к вам едет.</p>
+
+    <div class="contact-stack">
+      <div class="call-plate">
+        <span>
+          <a class="num" href="tel:+79000000000">+7 900 000-00-00</a>
+          <span class="sub">ЕЖЕДНЕВНО С 8:00 ДО 21:00</span>
+        </span>
+        <a class="call-btn" href="tel:+79000000000">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 013 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>
+          Позвонить
+        </a>
+      </div>
+
+      <div class="chips">
+        <a class="chip" href="https://wa.me/79000000000?text=Здравствуйте!%20Нужен%20электрик." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.8 14.2c-.2.7-1.2 1.3-2 1.4-.5.1-1.2.1-3.4-.8-2.8-1.2-4.6-4.1-4.8-4.3-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.3c-.1.1-.2.3 0 .5.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.5-.1l.8-.9c.2-.2.3-.2.6-.1l2 .9c.2.1.4.2.5.3 0 .1 0 .7-.2 1.4z"/></svg>
+          WhatsApp
+        </a>
+        <a class="chip" href="https://t.me/username" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm4.6 6.9l-1.6 7.5c-.1.5-.4.7-.9.4l-2.4-1.8-1.2 1.1c-.1.1-.3.3-.5.3l.2-2.5 4.6-4.2c.2-.2 0-.3-.3-.1L8.9 13l-2.4-.8c-.5-.2-.5-.5.1-.8l9.3-3.6c.4-.2.8.1.7.6z"/></svg>
+          Telegram
+        </a>
+        <a class="chip" href="https://vk.com/username" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12.8 16.5c-5 0-8-3.5-8.1-9.2h2.5c.1 4.2 2 6 3.4 6.4V7.3h2.4v3.6c1.4-.2 2.9-1.8 3.4-3.6h2.4c-.4 2.2-1.9 3.8-3 4.5 1.1.5 2.9 2 3.5 4.7h-2.6c-.5-1.6-1.8-2.9-3.7-3.1v3.1h-.2z"/></svg>
+          ВКонтакте
+        </a>
+        <a class="chip" href="https://max.ru/username" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zM7 16V8h1.8l3.2 4.4L15.2 8H17v8h-1.9v-5l-3.1 4.2L8.9 11v5H7z"/></svg>
+          MAX
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- УСЛУГИ -->
+  <section id="uslugi">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tick">01</span>
+        <div>
+          <h2>Что делаем и сколько это стоит</h2>
+          <p class="sec-note">Точную сумму называем после осмотра — но порядок цен вы видите сразу.</p>
+        </div>
+      </div>
+
+      <div class="price-list">
+        <div class="price-row"><span class="name">Замена розетки или выключателя</span><span class="dots"></span><span class="val">от 500 <small>₽</small></span></div>
+        <div class="price-row"><span class="name">Установка люстры или светильника</span><span class="dots"></span><span class="val">от 1 200 <small>₽</small></span></div>
+        <div class="price-row"><span class="name">Поиск обрыва или короткого замыкания</span><span class="dots"></span><span class="val">от 2 000 <small>₽</small></span></div>
+        <div class="price-row"><span class="name">Сборка и замена электрощита</span><span class="dots"></span><span class="val">от 6 000 <small>₽</small></span></div>
+        <div class="price-row"><span class="name">Проводка в квартире под ключ</span><span class="dots"></span><span class="val">от 1 500 <small>₽ / м²</small></span></div>
+        <div class="price-row"><span class="name">Подключение варочной панели, бойлера, духовки</span><span class="dots"></span><span class="val">от 2 500 <small>₽</small></span></div>
+        <div class="price-row"><span class="name">Выезд и осмотр в пределах города</span><span class="dots"></span><span class="val">бесплатно</span></div>
+      </div>
+
+      <p class="price-foot">Работаем с частными заказчиками: квартиры, дома, дачи. Юридическим лицам счета не выставляем — расчёт наличными или переводом, чек приходит из приложения «Мой налог».</p>
+    </div>
+  </section>
+
+  <!-- МАСТЕРА -->
+  <section id="mastera">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tick">02</span>
+        <div>
+          <h2>Кто приедет</h2>
+          <p class="sec-note">Нас двое. Вы заранее знаете имя, лицо и телефон человека, который войдёт в вашу квартиру.</p>
+        </div>
+      </div>
+
+      <div class="masters">
+        <article class="master">
+          <div class="ph">фото<br>84×84</div>
+          <div>
+            <h3>Владимир</h3>
+            <div class="role">ЭЛЕКТРОМОНТАЖ · 12 ЛЕТ</div>
+            <p>Щиты, проводка под ключ, ввод в дом. Диплом электротехникума. Берёт объекты, где нужно переделывать всё с нуля.</p>
+            <div class="inn">Самозанятый · ИНН 000000000000</div>
+          </div>
+        </article>
+
+        <article class="master">
+          <div class="ph">фото<br>84×84</div>
+          <div>
+            <h3>Антон</h3>
+            <div class="role">ДИАГНОСТИКА · 8 ЛЕТ</div>
+            <p>Поиск обрывов, аварийные вызовы, мелкий монтаж. Приезжает быстро, чинит в тот же день, если дело не в проводке целиком.</p>
+            <div class="inn">Самозанятый · ИНН 000000000000</div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- РАБОТЫ -->
+  <section id="raboty">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tick">03</span>
+        <div>
+          <h2>Как выглядит наша работа</h2>
+          <p class="sec-note">Аккуратный щиток — это не эстетика, это то, что через десять лет не начнёт греться.</p>
+        </div>
+      </div>
+
+      <div class="gallery">
+        <div class="shot">Щит в частном доме<br>4:5</div>
+        <div class="shot">Разводка в квартире<br>4:5</div>
+        <div class="shot">Ввод на дачу<br>4:5</div>
+        <div class="shot">Кухонная группа<br>4:5</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- КАК РАБОТАЕМ -->
+  <section id="kak">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tick">04</span>
+        <div>
+          <h2>Порядок работы</h2>
+          <p class="sec-note">Пять шагов, без сюрпризов в середине.</p>
+        </div>
+      </div>
+
+      <div class="steps">
+        <div class="step"><div class="n">ШАГ 1</div><h4>Звонок</h4><p>Расскажете, что случилось. Часто по фото уже понятно, о чём речь.</p></div>
+        <div class="step"><div class="n">ШАГ 2</div><h4>Осмотр</h4><p>Мастер приезжает, смотрит вживую. Выезд по городу бесплатный.</p></div>
+        <div class="step"><div class="n">ШАГ 3</div><h4>Цена</h4><p>Называем сумму и срок. Пока вы не согласились — ничего не начинаем.</p></div>
+        <div class="step"><div class="n">ШАГ 4</div><h4>Работа</h4><p>Делаем. Мусор увозим, за собой убираем.</p></div>
+        <div class="step"><div class="n">ШАГ 5</div><h4>Оплата и чек</h4><p>Платите мастеру напрямую. Чек — из приложения «Мой налог».</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ЗАЯВКА -->
+  <section id="kontakty">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tick">05</span>
+        <div>
+          <h2>Оставьте номер — перезвоним</h2>
+          <p class="sec-note">Если сейчас неудобно говорить. Обычно перезваниваем в течение часа.</p>
+        </div>
+      </div>
+
+      <div class="form-block">
+        <form action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="ВАШ_КЛЮЧ_WEB3FORMS">
+          <input type="hidden" name="subject" value="Заявка с сайта мастер.ру">
+          <div class="form-grid">
+            <input type="text" name="name" placeholder="Как к вам обращаться" required>
+            <input type="tel" name="phone" placeholder="+7 ___ ___-__-__" required>
+            <button type="submit">Жду звонка</button>
+          </div>
+          <label class="consent">
+            <input type="checkbox" required>
+            <span>Согласен на обработку персональных данных в соответствии с <a href="/privacy.html">политикой конфиденциальности</a>.</span>
+          </label>
+        </form>
+
+        <div class="disclose">
+          <b>Кто выполняет работы.</b> Электромонтаж выполняют самозанятые мастера Владимир Х. (ИНН 000000000000) и Антон Y. (ИНН 000000000000). Договор и оплата — напрямую с мастером, чек выдаётся через приложение «Мой налог». Владелец сайта мастер.ру предоставляет мастерам площадку для размещения информации, работы не выполняет и стороной договора не является.
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <h5>мастер.ру</h5>
+        <p>Электрика для квартир, домов и дач. Частные заказы.<br>Ежедневно с 8:00 до 21:00.</p>
+      </div>
+      <div>
+        <h5>Связаться</h5>
+        <ul>
+          <li><a href="tel:+79000000000">+7 900 000-00-00</a></li>
+          <li><a href="https://wa.me/79000000000" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://vk.com/username" target="_blank" rel="noopener">ВКонтакте</a></li>
+          <li><a href="https://max.ru/username" target="_blank" rel="noopener">MAX</a></li>
+          <li><a href="https://t.me/username" target="_blank" rel="noopener">Telegram</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Документы</h5>
+        <ul>
+          <li><a href="/offer.html">Условия использования сайта</a></li>
+          <li><a href="/privacy.html">Политика обработки ПДн</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">© 2026 мастер.ру · Сайт является информационной площадкой и не оказывает услуги электромонтажа.</div>
+  </div>
+</footer>
+
+</body>
+</html>

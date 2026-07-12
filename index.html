@@ -20,7 +20,7 @@
     --panel:#F1EEE6;
 
     --rail:56px;
-    --pad:clamp(20px,5vw,64px);
+    --pad:clamp(30px,5vw,64px);
     --maxw:1140px;
 
     --display:800 clamp(34px,5.2vw,62px)/1.02 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
@@ -109,9 +109,10 @@
   .eyebrow{
     display:inline-flex;align-items:center;gap:9px;
     font-size:12px;letter-spacing:.18em;text-transform:uppercase;
-    color:var(--gold-deep);font-weight:700;margin-bottom:22px;
+    color:var(--gold-deep);font-weight:700;margin-bottom:7px;
   }
   .eyebrow::before{content:"";width:26px;height:2px;background:var(--gold)}
+  .eyebrow-note{font-size:13px;color:var(--muted);margin-bottom:24px}
   h1{font:var(--display);letter-spacing:-.025em;max-width:15ch}
   h1 em{font-style:normal;color:var(--gold-deep)}
   .lead{margin-top:22px;max-width:52ch;font-size:19px;color:var(--muted)}
@@ -183,11 +184,27 @@
   }
   .price-row .val{font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums}
   .price-row .val small{font-weight:600;color:var(--muted);font-size:12px}
+  .price-group{
+    padding:30px 0 10px;font-size:12px;font-weight:800;
+    letter-spacing:.14em;text-transform:uppercase;
+    color:var(--gold-deep);border-bottom:1px solid var(--line);
+  }
+  .price-group:first-child{padding-top:16px}
+  @media(max-width:600px){
+    .price-row .dots{display:none}
+    .price-row .name{flex:1}
+  }
+  .price-note{
+    margin-top:26px;padding:20px 22px;
+    background:var(--gold-wash);border-radius:8px;
+    border-left:3px solid var(--gold);
+    font-size:15px;color:var(--steel);max-width:70ch;
+  }
+  .price-note b{display:block;color:var(--ink);margin-bottom:6px;font-weight:800}
   .price-foot{margin-top:18px;font-size:14px;color:var(--muted);max-width:60ch}
 
   /* ─── МАСТЕРА ─── */
-  .masters{display:grid;gap:18px}
-  @media(min-width:760px){.masters{grid-template-columns:1fr 1fr}}
+  .masters{display:grid;gap:18px;max-width:620px}
   .master{
     background:#fff;border:1px solid var(--line);border-radius:10px;
     padding:22px;display:flex;gap:18px;align-items:flex-start;
@@ -301,7 +318,7 @@
       </svg>
       <span>
         <b>мастер.ру</b>
-        <span>электрика для частных домов</span>
+        <span>Электромонтаж под ключ</span>
       </span>
     </a>
     <nav class="hnav">
@@ -319,8 +336,9 @@
   <!-- ГЕРОЙ -->
   <div class="hero wrap">
     <div class="eyebrow">Только частные заказы</div>
+    <p class="eyebrow-note">Не работаем с юридическими лицами</p>
     <h1>Приедем, посмотрим, назовём цену <em>до начала работ</em>.</h1>
-    <p class="lead">Розетки, щитки, проводка, поиск обрыва. Квартиры, дома и дачи. Работают два мастера — вы будете знать, кто именно к вам едет.</p>
+    <p class="lead">Розетки, щитки, проводка, поиск обрыва. Квартиры, дома и дачи — это мы берём на себя.</p>
 
     <div class="contact-stack">
       <div class="call-plate">
@@ -368,13 +386,47 @@
       </div>
 
       <div class="price-list">
+
+        <div class="price-group">Основные услуги</div>
         <div class="price-row"><span class="name">Замена розетки или выключателя</span><span class="dots"></span><span class="val">от 500 <small>₽</small></span></div>
         <div class="price-row"><span class="name">Установка люстры или светильника</span><span class="dots"></span><span class="val">от 1 200 <small>₽</small></span></div>
         <div class="price-row"><span class="name">Поиск обрыва или короткого замыкания</span><span class="dots"></span><span class="val">от 2 000 <small>₽</small></span></div>
         <div class="price-row"><span class="name">Сборка и замена электрощита</span><span class="dots"></span><span class="val">от 6 000 <small>₽</small></span></div>
         <div class="price-row"><span class="name">Проводка в квартире под ключ</span><span class="dots"></span><span class="val">от 1 500 <small>₽ / м²</small></span></div>
         <div class="price-row"><span class="name">Подключение варочной панели, бойлера, духовки</span><span class="dots"></span><span class="val">от 2 500 <small>₽</small></span></div>
-        <div class="price-row"><span class="name">Выезд и осмотр в пределах города</span><span class="dots"></span><span class="val">бесплатно</span></div>
+
+        <div class="price-group">Демонтажные работы</div>
+        <div class="price-row"><span class="name">Демонтаж старых розеток и выключателей</span><span class="dots"></span><span class="val">от 100 <small>₽ / шт.</small></span></div>
+        <div class="price-row"><span class="name">Удаление старой проводки и кабеля</span><span class="dots"></span><span class="val">от 50 <small>₽ / п.м.</small></span></div>
+        <div class="price-row"><span class="name">Демонтаж старого электрощита и распределительных коробок</span><span class="dots"></span><span class="val">от 500 <small>₽ / шт.</small></span></div>
+
+        <div class="price-group">Штробление и подготовка стен</div>
+        <div class="price-row"><span class="name">Штробление стен под проводку (штроборезом с пылесосом, без пыли)</span><span class="dots"></span><span class="val">от 350 <small>₽ / п.м.</small></span></div>
+        <div class="price-row"><span class="name">Бурение отверстий под розетки (бетон, кирпич, пеноблок)</span><span class="dots"></span><span class="val">от 300 <small>₽ / шт.</small></span></div>
+        <div class="price-row"><span class="name">Сверление сквозных отверстий в стенах и перекрытиях</span><span class="dots"></span><span class="val">от 200 <small>₽ / шт.</small></span></div>
+        <div class="price-row"><span class="name">Установка и вмазка подрозетников</span><span class="dots"></span><span class="val">от 150 <small>₽ / шт.</small></span></div>
+
+        <div class="price-group">Прокладка кабеля</div>
+        <div class="price-row"><span class="name">Прокладка кабеля (в гофре, штробе или кабель-канале)</span><span class="dots"></span><span class="val">от 100 <small>₽ / п.м.</small></span></div>
+        <div class="price-row"><span class="name">Сборка и подключение распределительной коробки</span><span class="dots"></span><span class="val">от 500 <small>₽ / шт.</small></span></div>
+
+        <div class="price-group">Дополнительный электромонтаж</div>
+        <div class="price-row"><span class="name">Установка автоматов, УЗО, дифавтоматов и реле напряжения в щитке</span><span class="dots"></span><span class="val">от 350 <small>₽ / шт.</small></span></div>
+        <div class="price-row"><span class="name">Установка проходного выключателя (свет из разных мест)</span><span class="dots"></span><span class="val">от 600 <small>₽ / шт.</small></span></div>
+        <div class="price-row"><span class="name">Установка диммера (светорегулятора)</span><span class="dots"></span><span class="val">от 600 <small>₽ / шт.</small></span></div>
+
+        <div class="price-group">Заземление и диагностика</div>
+        <div class="price-row"><span class="name">Монтаж контура заземления для частного дома</span><span class="dots"></span><span class="val">от 10 000 <small>₽</small></span></div>
+        <div class="price-row"><span class="name">Прозвонка кабеля и диагностика сети (проверка фаз, поиск замыканий)</span><span class="dots"></span><span class="val">от 1 000 <small>₽</small></span></div>
+
+        <div class="price-group">Выезд мастера</div>
+        <div class="price-row"><span class="name">Выезд и осмотр в пределах города</span><span class="dots"></span><span class="val">200 <small>₽</small></span></div>
+
+      </div>
+
+      <div class="price-note">
+        <b>Не нашли свою работу в списке?</b>
+        Здесь перечислено только самое частое. Позвоните — уточним, беремся ли, и посчитаем стоимость под ваш объект. Консультация по телефону бесплатная.
       </div>
 
       <p class="price-foot">Работаем с частными заказчиками: квартиры, дома, дачи. Юридическим лицам счета не выставляем — расчёт наличными или переводом, чек приходит из приложения «Мой налог».</p>
@@ -388,7 +440,7 @@
         <span class="tick">02</span>
         <div>
           <h2>Кто приедет</h2>
-          <p class="sec-note">Нас двое. Вы заранее знаете имя, лицо и телефон человека, который войдёт в вашу квартиру.</p>
+          <p class="sec-note">Вы заранее знаете имя и лицо человека, который войдёт в вашу квартиру.</p>
         </div>
       </div>
 
@@ -396,19 +448,9 @@
         <article class="master">
           <div class="ph">фото<br>84×84</div>
           <div>
-            <h3>Владимир</h3>
-            <div class="role">ЭЛЕКТРОМОНТАЖ · 12 ЛЕТ</div>
-            <p>Щиты, проводка под ключ, ввод в дом. Диплом электротехникума. Берёт объекты, где нужно переделывать всё с нуля.</p>
-            <div class="inn">Самозанятый · ИНН 000000000000</div>
-          </div>
-        </article>
-
-        <article class="master">
-          <div class="ph">фото<br>84×84</div>
-          <div>
-            <h3>Антон</h3>
-            <div class="role">ДИАГНОСТИКА · 8 ЛЕТ</div>
-            <p>Поиск обрывов, аварийные вызовы, мелкий монтаж. Приезжает быстро, чинит в тот же день, если дело не в проводке целиком.</p>
+            <h3>Александр</h3>
+            <div class="role">ЭЛЕКТРОМОНТАЖ · 5 ЛЕТ</div>
+            <p>Щиты, проводка под ключ, штробление, поиск обрывов. Берётся и за одну розетку, и за полную переделку электрики в квартире.</p>
             <div class="inn">Самозанятый · ИНН 000000000000</div>
           </div>
         </article>
@@ -449,7 +491,7 @@
 
       <div class="steps">
         <div class="step"><div class="n">ШАГ 1</div><h4>Звонок</h4><p>Расскажете, что случилось. Часто по фото уже понятно, о чём речь.</p></div>
-        <div class="step"><div class="n">ШАГ 2</div><h4>Осмотр</h4><p>Мастер приезжает, смотрит вживую. Выезд по городу бесплатный.</p></div>
+        <div class="step"><div class="n">ШАГ 2</div><h4>Осмотр</h4><p>Мастер приезжает, смотрит вживую. Выезд по городу — 200 ₽.</p></div>
         <div class="step"><div class="n">ШАГ 3</div><h4>Цена</h4><p>Называем сумму и срок. Пока вы не согласились — ничего не начинаем.</p></div>
         <div class="step"><div class="n">ШАГ 4</div><h4>Работа</h4><p>Делаем. Мусор увозим, за собой убираем.</p></div>
         <div class="step"><div class="n">ШАГ 5</div><h4>Оплата и чек</h4><p>Платите мастеру напрямую. Чек — из приложения «Мой налог».</p></div>
@@ -484,7 +526,7 @@
         </form>
 
         <div class="disclose">
-          <b>Кто выполняет работы.</b> Электромонтаж выполняют самозанятые мастера Владимир Х. (ИНН 000000000000) и Антон Y. (ИНН 000000000000). Договор и оплата — напрямую с мастером, чек выдаётся через приложение «Мой налог». Владелец сайта мастер.ру предоставляет мастерам площадку для размещения информации, работы не выполняет и стороной договора не является.
+          <b>Кто выполняет работы.</b> Электромонтаж выполняет самозанятый мастер Александр Х. (ИНН 000000000000). Договор и оплата — напрямую с мастером, чек выдаётся через приложение «Мой налог». Владелец сайта мастер.ру предоставляет мастеру площадку для размещения информации, работы не выполняет и стороной договора не является.
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>мастер-электромонтаж.ру — электрик в Самаре: квартиры, дома, дачи</title>
-<meta name="description" content="Электромонтаж для частных заказчиков в Самаре и Самарской области: розетки, щитки, проводка, поиск обрыва. Приедем, посмотрим, назовём цену до начала работ.">
+<meta name="description" content="Электромонтаж в Самаре и Самарской области: розетки, щитки, проводка, поиск обрыва. Приедем, посмотрим, назовём цену до начала работ.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23BC8C22'/><path d='M6 26V6h4l6 8 6-8h4v20h-4V13l-6 8-6-8v13z' fill='white'/></svg>">
 <style>
   :root{
@@ -47,7 +47,6 @@
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
   .brand{margin-left:var(--off-logo)}
   .eyebrow{margin-left:var(--off-eyebrow)}
-  .eyebrow-note{margin-left:var(--off-eyebrow)}
   h1{margin-left:var(--off-h1)}
   .lead{margin-left:var(--off-lead)}
   .call-plate{margin-left:var(--off-plate)}
@@ -66,9 +65,8 @@
   .htel{display:none;text-decoration:none;font-weight:700;font-size:17px;padding:10px 18px;border-radius:6px;background:var(--ink);color:#fff;margin-right:15px;white-space:nowrap;}
   @media(min-width:900px){.hnav{display:flex}.htel{display:block}}
   .hero{padding:clamp(48px,7vw,88px) 0 clamp(40px,6vw,64px)}
-  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep);font-weight:700;margin-bottom:7px;}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep);font-weight:700;margin-bottom:22px;}
   .eyebrow::before{content:"";width:26px;height:2px;background:var(--gold)}
-  .eyebrow-note{font-size:13px;color:var(--muted);margin-bottom:24px;}
   h1{font:var(--display);letter-spacing:-.025em;max-width:15ch}
   h1 em{font-style:normal;color:var(--gold-deep)}
   .lead{margin-top:22px;max-width:52ch;font-size:19px;color:var(--muted)}
@@ -80,7 +78,6 @@
   .call-btn{display:inline-flex;align-items:center;gap:10px;flex:none;padding:14px 22px;border-radius:7px;background:var(--gold);color:#fff;text-decoration:none;font-weight:700;font-size:16px;letter-spacing:.01em;transition:background .15s ease, transform .15s ease;}
   .call-btn:hover{background:#D19E2C;transform:translateY(-1px)}
   .call-btn svg{width:18px;height:18px;fill:#fff}
-  @media(max-width:520px){.call-plate{padding:18px}.call-btn{width:100%;justify-content:center}}
   .chips{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;}
   .chip{display:flex;flex-direction:column;align-items:center;gap:6px;padding:13px 6px;border:1px solid var(--line);border-radius:8px;background:#fff;text-decoration:none;font-size:13px;font-weight:600;color:var(--steel);transition:border-color .15s ease, background .15s ease;}
   .chip:hover{border-color:var(--gold);background:var(--gold-wash)}
@@ -101,7 +98,10 @@
   @media(max-width:600px){.price-row .dots{display:none}.price-row .name{flex:1}}
   .price-note{margin-top:26px;padding:20px 22px;background:var(--gold-wash);border-radius:8px;border-left:3px solid var(--gold);font-size:15px;color:var(--steel);max-width:70ch;}
   .price-note b{display:block;color:var(--ink);margin-bottom:6px;font-weight:800}
-  .price-foot{margin-top:18px;font-size:14px;color:var(--muted);max-width:60ch}
+  .price-foot{margin-top:20px;font-size:14px;color:var(--muted);max-width:66ch}
+  .price-foot b{color:var(--steel)}
+
+  /* ── МАСТЕР ── */
   .masters{display:grid;gap:18px;max-width:620px}
   .master{background:#fff;border:1px solid var(--line);border-radius:10px;padding:22px;display:flex;gap:18px;align-items:flex-start;}
   .master .ph{flex:none;width:84px;height:84px;border-radius:8px;object-fit:cover;border:1px solid var(--line);}
@@ -109,35 +109,47 @@
   .master .role{font-size:13px;color:var(--gold-deep);font-weight:700;margin:3px 0 10px;letter-spacing:.04em}
   .master p{font-size:15px;color:var(--muted)}
   .master .inn{margin-top:10px;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:10px;border-top:1px solid var(--line);}
-  /* ── ГАЛЕРЕЯ РАБОТ ── */
+
+  /* ── БРИГАДА: люди есть, а лиц показывать не нужно ── */
+  .crew{margin-top:16px;max-width:620px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:22px;display:flex;gap:18px;align-items:flex-start;}
+  .crew-faces{flex:none;display:flex;padding-top:2px}
+  .cf{width:30px;height:30px;border-radius:50%;background:#fff;border:2px solid var(--panel);display:grid;place-items:center;margin-left:-9px;}
+  .cf:first-child{margin-left:0}
+  .cf svg{width:16px;height:16px;fill:var(--muted)}
+  .cf.more{background:var(--gold-wash);color:var(--gold-deep);font-size:11px;font-weight:800;letter-spacing:-.02em}
+  .crew h4{font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:8px}
+  .crew p{font-size:15px;color:var(--steel)}
+
+  /* ── ГАЛЕРЕЯ ── */
   .gallery{display:grid;gap:14px;grid-template-columns:repeat(2,1fr)}
   @media(min-width:760px){.gallery{grid-template-columns:repeat(4,1fr)}}
   .work figcaption{margin-top:9px;font-size:13px;color:var(--muted);line-height:1.35}
   .shot{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:8px;border:1px solid var(--line);background:var(--panel);}
+
   .steps{display:grid;gap:2px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;}
   @media(min-width:760px){.steps{grid-template-columns:repeat(5,1fr)}}
   .step{background:var(--paper);padding:22px 18px}
   .step .n{font-size:12px;font-weight:800;color:var(--gold-deep);letter-spacing:.14em;margin-bottom:10px;}
   .step h4{font-size:16px;font-weight:700;margin-bottom:6px}
   .step p{font-size:14px;color:var(--muted)}
-  /* ── О МАСТЕРЕ: таблица реквизитов ── */
+
+  /* ── О МАСТЕРЕ ── */
   .about{border-top:1px solid var(--line);max-width:760px}
   .about-row{display:flex;gap:16px;padding:15px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
-  .about-row .k{flex:none;width:170px;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep);padding-top:3px}
+  .about-row .k{flex:none;width:180px;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep);padding-top:3px}
   .about-row .v{flex:1;min-width:200px;font-weight:600}
   .about-row .v a{text-decoration:none;border-bottom:1px solid var(--line)}
   .about-row .v a:hover{border-bottom-color:var(--gold)}
   .about-row .v small{display:block;font-weight:400;font-size:14px;color:var(--muted);margin-top:3px}
-  @media(max-width:600px){.about-row .k{width:100%}}
-  /* ── ФИНАЛЬНЫЙ ПРИЗЫВ ── */
+
+  /* ── ФИНАЛ ── */
   .cta-btn{display:inline-flex;align-items:center;gap:9px;padding:12px 22px;border-radius:7px;background:var(--gold);color:#fff;text-decoration:none;font-weight:800;font-size:17px;letter-spacing:-.01em;white-space:nowrap;box-shadow:0 1px 0 var(--gold-deep), 0 6px 18px -10px rgba(0,0,0,.5);transition:background .15s ease, transform .15s ease;}
   .cta-btn:hover{background:#D19E2C;transform:translateY(-1px)}
   .cta-btn:active{transform:translateY(0);background:var(--gold-deep)}
   .cta-btn svg{width:17px;height:17px;fill:#fff}
   .cta-hours{margin-top:12px;font-size:13px;color:var(--muted);letter-spacing:.03em}
   a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
-  .disclose{margin-top:34px;padding:18px 20px;border:1px solid var(--line);border-left:3px solid var(--gold);background:#fff;border-radius:0 8px 8px 0;font-size:14px;color:var(--muted);max-width:70ch;}
-  .disclose b{color:var(--ink)}
+
   footer{border-top:1px solid var(--line);padding:44px 0;font-size:14px;color:var(--muted)}
   .foot{display:grid;gap:22px}
   @media(min-width:760px){.foot{grid-template-columns:1.4fr 1fr 1fr}}
@@ -146,6 +158,51 @@
   .foot h5{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);margin-bottom:10px}
   .foot ul{list-style:none;display:grid;gap:7px}
   .copy{margin-top:32px;padding-top:20px;border-top:1px solid var(--line);font-size:13px}
+
+  /* ══════════════════════════════════════════════════════════════════
+     МОБИЛЬНАЯ ВЕРСТКА (до 700px)
+     Всё, что коротко — по центру. Всё, что читают построчно
+     (прайс, длинные абзацы) — остаётся слева: центрованный текст
+     в несколько строк читать тяжело.
+     Десктоп НЕ затрагивается.
+     ══════════════════════════════════════════════════════════════ */
+  @media(max-width:700px){
+    :root{--off-logo:0px;--off-eyebrow:0px;--off-h1:0px;--off-lead:0px;--off-plate:0px;--off-chips:0px}
+
+    .hero{text-align:center}
+    .eyebrow{justify-content:center}
+    h1{margin-inline:auto}
+    .lead{margin-inline:auto}
+    .contact-stack{margin-inline:auto}
+    .call-plate{flex-direction:column;justify-content:center;text-align:center;padding:20px}
+    .call-btn{width:100%;justify-content:center}
+
+    .sec-head{flex-direction:column;align-items:center;text-align:center;gap:10px}
+    .sec-head .tick{padding-top:0}
+    .sec-note{margin-inline:auto}
+
+    .price-group{text-align:center}
+
+    .masters,.crew,.about{margin-inline:auto}
+    .master{flex-direction:column;align-items:center;text-align:center}
+    .master .inn{width:100%}
+    .crew{flex-direction:column;align-items:center;text-align:center}
+
+    .work figcaption{text-align:center}
+    .step{text-align:center}
+
+    .about-row{flex-direction:column;align-items:center;text-align:center;gap:5px}
+    .about-row .k{width:100%;padding-top:0}
+    .about-row .v{min-width:0}
+
+    #kontakty{text-align:center}
+    .cta-btn{display:flex;width:100%;max-width:340px;margin-inline:auto;justify-content:center}
+
+    .foot{text-align:center}
+    .foot ul{justify-items:center}
+    .copy{text-align:center}
+  }
+
   @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -185,10 +242,10 @@
     <a class="htel" href="tel:+79991723085">+7 999 172-30-85</a>
   </div>
 </header>
+
 <main id="top">
   <div class="hero wrap">
-    <div class="eyebrow">Только частные заказы</div>
-    <p class="eyebrow-note">Не работаем с юридическими лицами</p>
+    <div class="eyebrow">Самара и Самарская область</div>
     <h1>Приедем, посмотрим, назовём цену <em>до начала работ</em>.</h1>
     <p class="lead">Розетки, щитки, проводка, поиск обрыва. Квартиры, дома и дачи в Самаре — это мы берём на себя.</p>
     <div class="contact-stack">
@@ -213,9 +270,7 @@
           <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm4.6 6.9l-1.6 7.5c-.1.5-.4.7-.9.4l-2.4-1.8-1.2 1.1c-.1.1-.3.3-.5.3l.2-2.5 4.6-4.2c.2-.2 0-.3-.3-.1L8.9 13l-2.4-.8c-.5-.2-.5-.5.1-.8l9.3-3.6c.4-.2.8.1.7.6z"/></svg>
           Telegram
         </a>
-        <!-- MAX: ссылка взята из приложения (по номеру ссылок у MAX не бывает).
-             ⚠ В настройках MAX должен быть ВЫКЛЮЧЕН «Безопасный режим»,
-             иначе клиенты-незнакомцы не смогут написать. -->
+        <!-- MAX: ⚠ выключите «Безопасный режим», иначе незнакомцы не напишут -->
         <a class="chip" href="https://max.ru/u/f9LHodD0cOLOrqc2n9AaIABkcu5p1ibyvwygYl1JheBrgc0J-vX5k294dnk" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zM7 16V8h1.8l3.2 4.4L15.2 8H17v8h-1.9v-5l-3.1 4.2L8.9 11v5H7z"/></svg>
           MAX
@@ -261,14 +316,18 @@
         <div class="price-row"><span class="name">Монтаж контура заземления для частного дома</span><span class="dots"></span><span class="val">от 10 000 <small>₽</small></span></div>
         <div class="price-row"><span class="name">Прозвонка кабеля и диагностика сети (проверка фаз, поиск замыканий)</span><span class="dots"></span><span class="val">от 1 000 <small>₽</small></span></div>
         <div class="price-group">Выезд мастера</div>
-        <div class="price-row"><span class="name">Выезд и осмотр в пределах Самары</span><span class="dots"></span><span class="val">200 <small>₽</small></span></div>
-        <div class="price-row"><span class="name">Выезд по Самарской области</span><span class="dots"></span><span class="val">по договорённости</span></div>
+        <div class="price-row"><span class="name">Выезд и осмотр в пределах Самары</span><span class="dots"></span><span class="val">550 <small>₽</small></span></div>
+        <div class="price-row"><span class="name">Выезд за пределы города</span><span class="dots"></span><span class="val">по расчёту</span></div>
       </div>
+
+      <p class="price-foot"><b>О выезде за город.</b> Стоимость выезда за пределы Самары определяется индивидуально. К базовой сумме добавляется транспортная составляющая: расход топлива на дорогу в обе стороны и время, затраченное на путь. Чем дальше объект — тем выше эта составляющая. Итоговую цифру мастер называет по телефону, до выезда, зная точный адрес: неожиданных доплат по факту не бывает.</p>
+
       <div class="price-note">
         <b>Не нашли свою работу в списке?</b>
         Здесь перечислено только самое частое. Позвоните — уточним, беремся ли, и посчитаем стоимость под ваш объект. Консультация по телефону бесплатная.
       </div>
-      <p class="price-foot">Работаем с частными заказчиками: квартиры, дома, дачи. Юридическим лицам счета не выставляем — расчёт наличными или переводом, чек приходит из приложения «Мой налог».</p>
+
+      <p class="price-foot">Расчёт наличными или переводом. Чек за выполненные работы приходит из приложения «Мой налог».</p>
     </div>
   </section>
 
@@ -281,6 +340,7 @@
           <p class="sec-note">Вы заранее знаете имя и лицо человека, который войдёт в вашу квартиру.</p>
         </div>
       </div>
+
       <div class="masters">
         <article class="master">
           <img class="ph" src="5.webp" alt="Электрик Александр Шаныгин, Самара" width="84" height="84">
@@ -292,6 +352,22 @@
           </div>
         </article>
       </div>
+
+      <!-- БРИГАДА: даём понять, что за мастером стоят люди,
+           без фотографий и без имён. -->
+      <div class="crew">
+        <div class="crew-faces" aria-hidden="true">
+          <span class="cf"><svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-5 0-9 2.5-9 5.5V22h18v-2.5c0-3-4-5.5-9-5.5z"/></svg></span>
+          <span class="cf"><svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-5 0-9 2.5-9 5.5V22h18v-2.5c0-3-4-5.5-9-5.5z"/></svg></span>
+          <span class="cf"><svg viewBox="0 0 24 24"><path d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-5 0-9 2.5-9 5.5V22h18v-2.5c0-3-4-5.5-9-5.5z"/></svg></span>
+          <span class="cf more">+</span>
+        </div>
+        <div>
+          <h4>Работает не один</h4>
+          <p>За Александром закреплена собственная бригада монтажников, с которой он работает постоянно. Состав выводится на объект по объёму задачи: где-то достаточно самого мастера, где-то выходит полная смена. Ответственность за результат в любом случае несёт Александр — он ведёт объект от осмотра до сдачи и рассчитывается с вами лично.</p>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -301,7 +377,7 @@
         <span class="tick">03</span>
         <div>
           <h2>Как выглядит наша работа</h2>
-          <p class="sec-note">Аккуратный щиток — это не эстетика, это то, что через десять лет не начнёт греться. Часть снимков — с прошлых промышленных объектов: они показывают уровень монтажа.</p>
+          <p class="sec-note">Аккуратный щиток — это не эстетика, это то, что через десять лет не начнёт греться. Часть снимков — с промышленных объектов: они показывают уровень монтажа.</p>
         </div>
       </div>
       <div class="gallery">
@@ -336,7 +412,7 @@
       </div>
       <div class="steps">
         <div class="step"><div class="n">ШАГ 1</div><h4>Звонок</h4><p>Расскажете, что случилось. Часто по фото уже понятно, о чём речь.</p></div>
-        <div class="step"><div class="n">ШАГ 2</div><h4>Осмотр</h4><p>Мастер приезжает, смотрит вживую. Выезд по Самаре — 200 ₽.</p></div>
+        <div class="step"><div class="n">ШАГ 2</div><h4>Осмотр</h4><p>Мастер приезжает, смотрит вживую. Выезд по Самаре — 550 ₽.</p></div>
         <div class="step"><div class="n">ШАГ 3</div><h4>Цена</h4><p>Называем сумму и срок. Пока вы не согласились — ничего не начинаем.</p></div>
         <div class="step"><div class="n">ШАГ 4</div><h4>Работа</h4><p>Делаем. Мусор увозим, за собой убираем.</p></div>
         <div class="step"><div class="n">ШАГ 5</div><h4>Оплата и чек</h4><p>Платите мастеру напрямую. Чек — из приложения «Мой налог».</p></div>
@@ -344,7 +420,6 @@
     </div>
   </section>
 
-  <!-- О МАСТЕРЕ: реквизиты, география, контакты -->
   <section id="o-mastere">
     <div class="wrap">
       <div class="sec-head">
@@ -374,7 +449,12 @@
         </div>
         <div class="about-row">
           <span class="k">География работ</span>
-          <span class="v">Самара<small>Самарская область — по договорённости, выезд обсуждается отдельно.</small></span>
+          <span class="v">Самара<small>Самарская область — по договорённости. Выезд за пределы города рассчитывается с учётом транспортных расходов и времени в пути.</small></span>
+        </div>
+        <!-- ЮРИДИЧЕСКИЙ ЩИТ. Перенесён сюда из отдельной плашки. Не удалять. -->
+        <div class="about-row">
+          <span class="k">Договор и оплата</span>
+          <span class="v">Напрямую с мастером<small>Владелец сайта мастер-электромонтаж.ру предоставляет мастеру площадку для размещения информации, работы не выполняет и стороной договора не является.</small></span>
         </div>
         <div class="about-row">
           <span class="k">Телефон</span>
@@ -388,7 +468,6 @@
     </div>
   </section>
 
-  <!-- ФИНАЛ. Формы нет — только звонок. -->
   <section id="kontakty">
     <div class="wrap">
       <div class="sec-head">
@@ -404,21 +483,16 @@
         +7 999 172-30-85
       </a>
       <p class="cta-hours">Ежедневно с 8:00 до 21:00</p>
-
-      <!-- ЮРИДИЧЕСКИЙ ЩИТ. Не удалять. -->
-      <div class="disclose">
-        <b>Кто выполняет работы.</b> Электромонтаж выполняет самозанятый мастер Шаныгин Александр Владимирович (ИНН 561010298735). Договор и оплата — напрямую с мастером, чек выдаётся через приложение «Мой налог». Владелец сайта мастер-электромонтаж.ру предоставляет мастеру площадку для размещения информации, работы не выполняет и стороной договора не является.
-      </div>
-
     </div>
   </section>
 </main>
+
 <footer>
   <div class="wrap">
     <div class="foot">
       <div>
         <h5>мастер-электромонтаж.ру</h5>
-        <p>Электрика для квартир, домов и дач.<br>Самара и Самарская область.<br>Частные заказы, ежедневно с 8:00 до 21:00.</p>
+        <p>Электрика для квартир, домов и дач.<br>Самара и Самарская область.<br>Ежедневно с 8:00 до 21:00.</p>
       </div>
       <div>
         <h5>Связаться</h5>

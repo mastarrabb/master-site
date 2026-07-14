@@ -32,8 +32,8 @@
     --body:400 17px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth;scroll-padding-top:80px}
-  body{font:var(--body);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;}
+  html{scroll-behavior:smooth;scroll-padding-top:80px;max-width:100%;overflow-x:clip;}
+  body{font:var(--body);color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased;max-width:100%;overflow-x:clip;overflow-wrap:break-word;}
   img{max-width:100%;display:block}
   a{color:inherit}
   .rail{position:fixed;top:0;left:0;bottom:0;width:var(--rail);background:var(--paper);border-right:1px solid var(--line);z-index:40;display:none;}
@@ -78,7 +78,7 @@
   .call-btn{display:inline-flex;align-items:center;gap:10px;flex:none;padding:14px 22px;border-radius:7px;background:var(--gold);color:#fff;text-decoration:none;font-weight:700;font-size:16px;letter-spacing:.01em;transition:background .15s ease, transform .15s ease;}
   .call-btn:hover{background:#D19E2C;transform:translateY(-1px)}
   .call-btn svg{width:18px;height:18px;fill:#fff}
-  .chips{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;}
+  .chips{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:10px;}
   .chip{display:flex;flex-direction:column;align-items:center;gap:6px;padding:13px 6px;border:1px solid var(--line);border-radius:8px;background:#fff;text-decoration:none;font-size:13px;font-weight:600;color:var(--steel);transition:border-color .15s ease, background .15s ease;}
   .chip:hover{border-color:var(--gold);background:var(--gold-wash)}
   .chip svg{width:20px;height:20px;fill:var(--gold-deep)}
@@ -121,13 +121,14 @@
   .crew p{font-size:15px;color:var(--steel)}
 
   /* ── ГАЛЕРЕЯ ── */
-  .gallery{display:grid;gap:14px;grid-template-columns:repeat(2,1fr)}
-  @media(min-width:760px){.gallery{grid-template-columns:repeat(4,1fr)}}
-  .work figcaption{margin-top:9px;font-size:13px;color:var(--muted);line-height:1.35}
-  .shot{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:8px;border:1px solid var(--line);background:var(--panel);}
+  .gallery{display:grid;gap:14px;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;}
+  @media(min-width:760px){.gallery{grid-template-columns:repeat(4,minmax(0,1fr))}}
+  .work{display:flex;flex-direction:column;min-width:0;}
+  .work figcaption{margin-top:9px;font-size:13px;color:var(--muted);line-height:1.35;word-wrap:break-word;}
+  .shot{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:8px;border:1px solid var(--line);background:var(--panel);}
 
   .steps{display:grid;gap:2px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;}
-  @media(min-width:760px){.steps{grid-template-columns:repeat(5,1fr)}}
+  @media(min-width:760px){.steps{grid-template-columns:repeat(5,minmax(0,1fr))}}
   .step{background:var(--paper);padding:22px 18px}
   .step .n{font-size:12px;font-weight:800;color:var(--gold-deep);letter-spacing:.14em;margin-bottom:10px;}
   .step h4{font-size:16px;font-weight:700;margin-bottom:6px}
@@ -161,13 +162,9 @@
 
   /* ══════════════════════════════════════════════════════════════════
      МОБИЛЬНАЯ ВЕРСТКА (до 700px)
-     Всё, что коротко — по центру. Всё, что читают построчно
-     (прайс, длинные абзацы) — остаётся слева: центрованный текст
-     в несколько строк читать тяжело.
-     Десктоп НЕ затрагивается.
      ══════════════════════════════════════════════════════════════ */
   @media(max-width:700px){
-    :root{--off-logo:0px;--off-eyebrow:0px;--off-h1:0px;--off-lead:0px;--off-plate:0px;--off-chips:0px}
+    :root{--off-logo:0px;--off-eyebrow:0px;--off-h1:0px;--off-lead:0px;--off-plate:0px;--off-chips:0px;--pad:clamp(16px, 5vw, 30px);}
 
     .hero{text-align:center}
     .eyebrow{justify-content:center}
@@ -452,7 +449,6 @@
           <span class="k">География работ</span>
           <span class="v">Самара<small>Самарская область — по договорённости. Выезд за пределы города рассчитывается с учётом транспортных расходов и времени в пути.</small></span>
         </div>
-        <!-- ЮРИДИЧЕСКИЙ ЩИТ. Перенесён сюда из отдельной плашки. Не удалять. -->
         <div class="about-row">
           <span class="k">Договор и оплата</span>
           <span class="v">Напрямую с мастером<small>Владелец сайта мастер-электромонтаж.ру предоставляет мастеру площадку для размещения информации, работы не выполняет и стороной договора не является.</small></span>

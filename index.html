@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>мастер.ру — Электромонтаж для дом, квартиры и дачи</title>
-<meta name="description" content="Электромонтаж для частных заказчиков: розетки, щитки, проводка, поиск обрыва. Приедем, посмотрим, назовём цену до начала работ.">
+<title>мастер-электромонтаж.ру — электрик в Самаре: квартиры, дома, дачи</title>
+<meta name="description" content="Электромонтаж для частных заказчиков в Самаре и Самарской области: розетки, щитки, проводка, поиск обрыва. Приедем, посмотрим, назовём цену до начала работ.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23BC8C22'/><path d='M6 26V6h4l6 8 6-8h4v20h-4V13l-6 8-6-8v13z' fill='white'/></svg>">
 <style>
   :root{
@@ -42,7 +42,7 @@
   .rail-hole{position:absolute;left:16px;width:12px;height:12px;border-radius:50%;border:1.5px solid var(--line);}
   .rail-hole.top{top:28px}
   .rail-hole.bot{bottom:28px}
-  .rail-word{position:absolute;left:20px;top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);}
+  .rail-word{position:absolute;left:20px;top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);white-space:nowrap;}
   @media(min-width:1000px){.rail{display:block}body{padding-left:var(--rail)}}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
   .brand{margin-left:var(--off-logo)}
@@ -56,14 +56,14 @@
   footer .wrap{padding-left:calc(var(--pad) + var(--off-footer))}
   header{position:sticky;top:0;z-index:30;background:var(--paper);border-bottom:1px solid var(--line);}
   .bar{display:flex;align-items:center;gap:16px;padding:14px 0}
-  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex:1}
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex:1;min-width:0}
   .mark{width:38px;height:38px;flex:none}
-  .brand b{font-size:19px;font-weight:800;letter-spacing:-.01em;color:#000}
-  .brand span{display:block;font-size:11px;color:var(--muted);letter-spacing:.06em}
-  .hnav{display:none;gap:24px;font-size:15px; margin-right: 5px;}
+  .brand b{display:block;font-size:clamp(14px,3.7vw,19px);font-weight:800;letter-spacing:-.02em;color:#000;line-height:1.15}
+  .brand span{display:block;font-size:11px;color:var(--muted);letter-spacing:.06em;margin-top:2px}
+  .hnav{display:none;gap:24px;font-size:15px;margin-right:5px;}
   .hnav a{text-decoration:none;color:var(--muted)}
   .hnav a:hover{color:var(--ink)}
-  .htel{display:none;text-decoration:none;font-weight:700;font-size:17px;padding:10px 18px;border-radius:6px;background:var(--ink);color:#fff;margin-right: 15px;}
+  .htel{display:none;text-decoration:none;font-weight:700;font-size:17px;padding:10px 18px;border-radius:6px;background:var(--ink);color:#fff;margin-right:15px;white-space:nowrap;}
   @media(min-width:900px){.hnav{display:flex}.htel{display:block}}
   .hero{padding:clamp(48px,7vw,88px) 0 clamp(40px,6vw,64px)}
   .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-deep);font-weight:700;margin-bottom:7px;}
@@ -74,15 +74,14 @@
   .lead{margin-top:22px;max-width:52ch;font-size:19px;color:var(--muted)}
   .contact-stack{margin-top:34px;max-width:350px}
   .call-plate{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:16px 16px 16px 22px;border-radius:8px;background:var(--ink);color:#fff;box-shadow:0 1px 0 var(--gold-deep), 0 10px 26px -14px rgba(0,0,0,.6);}
-  .call-plate .num{display:block;font-size:clamp(21px,3.4vw,27px);font-weight:800;letter-spacing:-.01em;color:#fff;text-decoration:none;}
+  .call-plate .num{display:block;font-size:clamp(21px,3.4vw,27px);font-weight:800;letter-spacing:-.01em;color:#fff;text-decoration:none;white-space:nowrap;}
   .call-plate .num:hover{color:var(--gold)}
   .call-plate .sub{display:block;font-size:12px;color:#B9B3A6;letter-spacing:.05em;margin-top:3px;}
   .call-btn{display:inline-flex;align-items:center;gap:10px;flex:none;padding:14px 22px;border-radius:7px;background:var(--gold);color:#fff;text-decoration:none;font-weight:700;font-size:16px;letter-spacing:.01em;transition:background .15s ease, transform .15s ease;}
   .call-btn:hover{background:#D19E2C;transform:translateY(-1px)}
   .call-btn svg{width:18px;height:18px;fill:#fff}
   @media(max-width:520px){.call-plate{padding:18px}.call-btn{width:100%;justify-content:center}}
-  .chips{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px;}
-  @media(min-width:560px){.chips{grid-template-columns:repeat(4,1fr)}}
+  .chips{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px;}
   .chip{display:flex;flex-direction:column;align-items:center;gap:6px;padding:13px 6px;border:1px solid var(--line);border-radius:8px;background:#fff;text-decoration:none;font-size:13px;font-weight:600;color:var(--steel);transition:border-color .15s ease, background .15s ease;}
   .chip:hover{border-color:var(--gold);background:var(--gold-wash)}
   .chip svg{width:20px;height:20px;fill:var(--gold-deep)}
@@ -90,7 +89,7 @@
   .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:34px}
   .sec-head .tick{font-size:12px;font-weight:700;color:var(--gold-deep);letter-spacing:.14em;padding-top:4px;flex:none;}
   h2{font-size:clamp(26px,3.4vw,36px);font-weight:800;letter-spacing:-.02em}
-  .sec-note{margin-top:8px;color:var(--muted);font-size:16px}
+  .sec-note{margin-top:8px;color:var(--muted);font-size:16px;max-width:62ch}
   .price-list{border-top:1px solid var(--line)}
   .price-row{display:flex;align-items:baseline;gap:12px;padding:16px 0;border-bottom:1px solid var(--line);}
   .price-row .name{font-weight:600}
@@ -105,31 +104,39 @@
   .price-foot{margin-top:18px;font-size:14px;color:var(--muted);max-width:60ch}
   .masters{display:grid;gap:18px;max-width:620px}
   .master{background:#fff;border:1px solid var(--line);border-radius:10px;padding:22px;display:flex;gap:18px;align-items:flex-start;}
-  .master .ph{flex:none;width:84px;height:84px;border-radius:8px;background:var(--panel);display:grid;place-items:center;color:var(--muted);font-size:11px;text-align:center;border:1px solid var(--line);}
+  .master .ph{flex:none;width:84px;height:84px;border-radius:8px;object-fit:cover;border:1px solid var(--line);}
   .master h3{font-size:19px;font-weight:800}
   .master .role{font-size:13px;color:var(--gold-deep);font-weight:700;margin:3px 0 10px;letter-spacing:.04em}
   .master p{font-size:15px;color:var(--muted)}
   .master .inn{margin-top:10px;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:10px;border-top:1px solid var(--line);}
-  .gallery{display:grid;gap:10px;grid-template-columns:repeat(2,1fr)}
+  /* ── ГАЛЕРЕЯ РАБОТ ── */
+  .gallery{display:grid;gap:14px;grid-template-columns:repeat(2,1fr)}
   @media(min-width:760px){.gallery{grid-template-columns:repeat(4,1fr)}}
-  .shot{aspect-ratio:4/5;border-radius:8px;background:var(--panel);border:1px solid var(--line);display:grid;place-items:center;text-align:center;color:var(--muted);font-size:12px;padding:10px;}
+  .work figcaption{margin-top:9px;font-size:13px;color:var(--muted);line-height:1.35}
+  .shot{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:8px;border:1px solid var(--line);background:var(--panel);}
   .steps{display:grid;gap:2px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;}
   @media(min-width:760px){.steps{grid-template-columns:repeat(5,1fr)}}
   .step{background:var(--paper);padding:22px 18px}
   .step .n{font-size:12px;font-weight:800;color:var(--gold-deep);letter-spacing:.14em;margin-bottom:10px;}
   .step h4{font-size:16px;font-weight:700;margin-bottom:6px}
   .step p{font-size:14px;color:var(--muted)}
-  .form-block{background:var(--panel);border-radius:12px;padding:clamp(24px,4vw,40px)}
-  .form-grid{display:grid;gap:10px;margin-top:20px}
-  @media(min-width:640px){.form-grid{grid-template-columns:1fr 1fr auto}}
-  input[type=text],input[type=tel]{font:inherit;padding:15px 16px;border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--ink);width:100%;}
-  input:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
-  button[type=submit]{font:inherit;font-weight:700;cursor:pointer;padding:15px 28px;border:0;border-radius:7px;background:var(--gold);color:#fff;white-space:nowrap;}
-  button[type=submit]:hover{background:var(--gold-deep)}
-  .consent{display:flex;gap:9px;margin-top:14px;font-size:13px;color:var(--muted);align-items:flex-start;}
-  .consent input{margin-top:3px;flex:none;accent-color:var(--gold)}
-  .consent a{color:var(--steel)}
-  .disclose{margin-top:26px;padding:18px 20px;border-left:3px solid var(--gold);background:#fff;border-radius:0 8px 8px 0;font-size:14px;color:var(--muted);}
+  /* ── О МАСТЕРЕ: таблица реквизитов ── */
+  .about{border-top:1px solid var(--line);max-width:760px}
+  .about-row{display:flex;gap:16px;padding:15px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .about-row .k{flex:none;width:170px;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep);padding-top:3px}
+  .about-row .v{flex:1;min-width:200px;font-weight:600}
+  .about-row .v a{text-decoration:none;border-bottom:1px solid var(--line)}
+  .about-row .v a:hover{border-bottom-color:var(--gold)}
+  .about-row .v small{display:block;font-weight:400;font-size:14px;color:var(--muted);margin-top:3px}
+  @media(max-width:600px){.about-row .k{width:100%}}
+  /* ── ФИНАЛЬНЫЙ ПРИЗЫВ ── */
+  .cta-btn{display:inline-flex;align-items:center;gap:9px;padding:12px 22px;border-radius:7px;background:var(--gold);color:#fff;text-decoration:none;font-weight:800;font-size:17px;letter-spacing:-.01em;white-space:nowrap;box-shadow:0 1px 0 var(--gold-deep), 0 6px 18px -10px rgba(0,0,0,.5);transition:background .15s ease, transform .15s ease;}
+  .cta-btn:hover{background:#D19E2C;transform:translateY(-1px)}
+  .cta-btn:active{transform:translateY(0);background:var(--gold-deep)}
+  .cta-btn svg{width:17px;height:17px;fill:#fff}
+  .cta-hours{margin-top:12px;font-size:13px;color:var(--muted);letter-spacing:.03em}
+  a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .disclose{margin-top:34px;padding:18px 20px;border:1px solid var(--line);border-left:3px solid var(--gold);background:#fff;border-radius:0 8px 8px 0;font-size:14px;color:var(--muted);max-width:70ch;}
   .disclose b{color:var(--ink)}
   footer{border-top:1px solid var(--line);padding:44px 0;font-size:14px;color:var(--muted)}
   .foot{display:grid;gap:22px}
@@ -145,7 +152,7 @@
 <body>
 <div class="rail" aria-hidden="true">
   <div class="rail-hole top"></div>
-  <div class="rail-word">мастер.ру</div>
+  <div class="rail-word">мастер-электромонтаж.ру</div>
   <div class="rail-hole bot"></div>
 </div>
 <header>
@@ -165,17 +172,17 @@
         </g>
       </svg>
       <span>
-        <b>мастер.ру</b>
-        <span>Электромонтаж под ключ</span>
+        <b>мастер-электромонтаж.ру</b>
+        <span>Электромонтаж под ключ · Самара</span>
       </span>
     </a>
     <nav class="hnav">
       <a href="#uslugi">Цены</a>
-      <a href="#mastera">Мастера</a>
       <a href="#raboty">Работы</a>
+      <a href="#o-mastere">О мастере</a>
       <a href="#kontakty">Связаться</a>
     </nav>
-    <a class="htel" href="tel:+79000000000">+7 900 000-00-00</a>
+    <a class="htel" href="tel:+79991723085">+7 999 172-30-85</a>
   </div>
 </header>
 <main id="top">
@@ -183,38 +190,40 @@
     <div class="eyebrow">Только частные заказы</div>
     <p class="eyebrow-note">Не работаем с юридическими лицами</p>
     <h1>Приедем, посмотрим, назовём цену <em>до начала работ</em>.</h1>
-    <p class="lead">Розетки, щитки, проводка, поиск обрыва. Квартиры, дома и дачи — это мы берём на себя.</p>
+    <p class="lead">Розетки, щитки, проводка, поиск обрыва. Квартиры, дома и дачи в Самаре — это мы берём на себя.</p>
     <div class="contact-stack">
       <div class="call-plate">
         <span>
-          <a class="num" href="tel:+79000000000">+7 900 000-00-00</a>
+          <a class="num" href="tel:+79991723085">+7 999 172-30-85</a>
           <span class="sub">ЕЖЕДНЕВНО С 8:00 ДО 21:00</span>
         </span>
-        <a class="call-btn" href="tel:+79000000000">
+        <a class="call-btn" href="tel:+79991723085">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 013 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>
           Позвонить
         </a>
       </div>
       <div class="chips">
-        <a class="chip" href="https://wa.me/79000000000?text=Здравствуйте!%20Нужен%20электрик." target="_blank" rel="noopener">
+        <!-- WhatsApp: номер БЕЗ плюса. %20 = пробел в автотексте. -->
+        <a class="chip" href="https://wa.me/79991723085?text=Здравствуйте!%20Нужен%20электрик." target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.6 15L2 22l5.2-1.4A10 10 0 1012 2zm5.8 14.2c-.2.7-1.2 1.3-2 1.4-.5.1-1.2.1-3.4-.8-2.8-1.2-4.6-4.1-4.8-4.3-.1-.2-1.1-1.5-1.1-2.8 0-1.3.7-2 .9-2.2.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.4.5-.3.3c-.1.1-.2.3 0 .5.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.2.1.4.1.5-.1l.8-.9c.2-.2.3-.2.6-.1l2 .9c.2.1.4.2.5.3 0 .1 0 .7-.2 1.4z"/></svg>
           WhatsApp
         </a>
-        <a class="chip" href="https://t.me/username" target="_blank" rel="noopener">
+        <!-- Telegram: юзернейм БЕЗ значка @ -->
+        <a class="chip" href="https://t.me/Alec63" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm4.6 6.9l-1.6 7.5c-.1.5-.4.7-.9.4l-2.4-1.8-1.2 1.1c-.1.1-.3.3-.5.3l.2-2.5 4.6-4.2c.2-.2 0-.3-.3-.1L8.9 13l-2.4-.8c-.5-.2-.5-.5.1-.8l9.3-3.6c.4-.2.8.1.7.6z"/></svg>
           Telegram
         </a>
-        <a class="chip" href="https://vk.com/username" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24"><path d="M12.8 16.5c-5 0-8-3.5-8.1-9.2h2.5c.1 4.2 2 6 3.4 6.4V7.3h2.4v3.6c1.4-.2 2.9-1.8 3.4-3.6h2.4c-.4 2.2-1.9 3.8-3 4.5 1.1.5 2.9 2 3.5 4.7h-2.6c-.5-1.6-1.8-2.9-3.7-3.1v3.1h-.2z"/></svg>
-          ВКонтакте
-        </a>
-        <a class="chip" href="https://max.ru/username" target="_blank" rel="noopener">
+        <!-- MAX: ссылка взята из приложения (по номеру ссылок у MAX не бывает).
+             ⚠ В настройках MAX должен быть ВЫКЛЮЧЕН «Безопасный режим»,
+             иначе клиенты-незнакомцы не смогут написать. -->
+        <a class="chip" href="https://max.ru/u/f9LHodD0cOLOrqc2n9AaIABkcu5p1ibyvwygYl1JheBrgc0J-vX5k294dnk" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zM7 16V8h1.8l3.2 4.4L15.2 8H17v8h-1.9v-5l-3.1 4.2L8.9 11v5H7z"/></svg>
           MAX
         </a>
       </div>
     </div>
   </div>
+
   <section id="uslugi">
     <div class="wrap">
       <div class="sec-head">
@@ -252,7 +261,8 @@
         <div class="price-row"><span class="name">Монтаж контура заземления для частного дома</span><span class="dots"></span><span class="val">от 10 000 <small>₽</small></span></div>
         <div class="price-row"><span class="name">Прозвонка кабеля и диагностика сети (проверка фаз, поиск замыканий)</span><span class="dots"></span><span class="val">от 1 000 <small>₽</small></span></div>
         <div class="price-group">Выезд мастера</div>
-        <div class="price-row"><span class="name">Выезд и осмотр в пределах города</span><span class="dots"></span><span class="val">200 <small>₽</small></span></div>
+        <div class="price-row"><span class="name">Выезд и осмотр в пределах Самары</span><span class="dots"></span><span class="val">200 <small>₽</small></span></div>
+        <div class="price-row"><span class="name">Выезд по Самарской области</span><span class="dots"></span><span class="val">по договорённости</span></div>
       </div>
       <div class="price-note">
         <b>Не нашли свою работу в списке?</b>
@@ -261,6 +271,7 @@
       <p class="price-foot">Работаем с частными заказчиками: квартиры, дома, дачи. Юридическим лицам счета не выставляем — расчёт наличными или переводом, чек приходит из приложения «Мой налог».</p>
     </div>
   </section>
+
   <section id="mastera">
     <div class="wrap">
       <div class="sec-head">
@@ -272,34 +283,48 @@
       </div>
       <div class="masters">
         <article class="master">
-          <div class="ph">фото<br>84×84</div>
+          <img class="ph" src="5.webp" alt="Электрик Александр Шаныгин, Самара" width="84" height="84">
           <div>
             <h3>Александр</h3>
             <div class="role">ЭЛЕКТРОМОНТАЖ · 5 ЛЕТ</div>
             <p>Щиты, проводка под ключ, штробление, поиск обрывов. Берётся и за одну розетку, и за полную переделку электрики в квартире.</p>
-            <div class="inn">Самозанятый · ИНН 000000000000</div>
+            <div class="inn">Самозанятый · ИНН 561010298735</div>
           </div>
         </article>
       </div>
     </div>
   </section>
+
   <section id="raboty">
     <div class="wrap">
       <div class="sec-head">
         <span class="tick">03</span>
         <div>
           <h2>Как выглядит наша работа</h2>
-          <p class="sec-note">Аккуратный щиток — это не эстетика, это то, что через десять лет не начнёт греться.</p>
+          <p class="sec-note">Аккуратный щиток — это не эстетика, это то, что через десять лет не начнёт греться. Часть снимков — с прошлых промышленных объектов: они показывают уровень монтажа.</p>
         </div>
       </div>
       <div class="gallery">
-        <div class="shot">Щит в частном доме<br>4:5</div>
-        <div class="shot">Разводка в квартире<br>4:5</div>
-        <div class="shot">Ввод на дачу<br>4:5</div>
-        <div class="shot">Кухонная группа<br>4:5</div>
+        <figure class="work">
+          <img class="shot" src="1.webp" alt="Монтаж силового щита ВРУ" loading="lazy">
+          <figcaption>Монтаж силового щита ВРУ</figcaption>
+        </figure>
+        <figure class="work">
+          <img class="shot" src="2.webp" alt="Монтаж промышленных светильников" loading="lazy">
+          <figcaption>Монтаж промышленных светильников</figcaption>
+        </figure>
+        <figure class="work">
+          <img class="shot" src="3.webp" alt="Прокладка металлических кабельных лотков" loading="lazy">
+          <figcaption>Прокладка металлических кабельных лотков</figcaption>
+        </figure>
+        <figure class="work">
+          <img class="shot" src="4.webp" alt="Монтаж бытового щита" loading="lazy">
+          <figcaption>Монтаж бытового щита</figcaption>
+        </figure>
       </div>
     </div>
   </section>
+
   <section id="kak">
     <div class="wrap">
       <div class="sec-head">
@@ -311,40 +336,80 @@
       </div>
       <div class="steps">
         <div class="step"><div class="n">ШАГ 1</div><h4>Звонок</h4><p>Расскажете, что случилось. Часто по фото уже понятно, о чём речь.</p></div>
-        <div class="step"><div class="n">ШАГ 2</div><h4>Осмотр</h4><p>Мастер приезжает, смотрит вживую. Выезд по городу — 200 ₽.</p></div>
+        <div class="step"><div class="n">ШАГ 2</div><h4>Осмотр</h4><p>Мастер приезжает, смотрит вживую. Выезд по Самаре — 200 ₽.</p></div>
         <div class="step"><div class="n">ШАГ 3</div><h4>Цена</h4><p>Называем сумму и срок. Пока вы не согласились — ничего не начинаем.</p></div>
         <div class="step"><div class="n">ШАГ 4</div><h4>Работа</h4><p>Делаем. Мусор увозим, за собой убираем.</p></div>
         <div class="step"><div class="n">ШАГ 5</div><h4>Оплата и чек</h4><p>Платите мастеру напрямую. Чек — из приложения «Мой налог».</p></div>
       </div>
     </div>
   </section>
-  <section id="kontakty">
+
+  <!-- О МАСТЕРЕ: реквизиты, география, контакты -->
+  <section id="o-mastere">
     <div class="wrap">
       <div class="sec-head">
         <span class="tick">05</span>
         <div>
-          <h2>Оставьте номер — перезвоним</h2>
-          <p class="sec-note">Если сейчас неудобно говорить. Обычно перезваниваем в течение часа.</p>
+          <h2>О мастере</h2>
+          <p class="sec-note">Полные данные исполнителя. Вы всегда знаете, с кем именно заключаете договор и кому платите.</p>
         </div>
       </div>
-      <div class="form-block">
-        <form action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="ВАШ_КЛЮЧ_WEB3FORMS">
-          <input type="hidden" name="subject" value="Заявка с сайта мастер.ру">
-          <div class="form-grid">
-            <input type="text" name="name" placeholder="Как к вам обращаться" required>
-            <input type="tel" name="phone" placeholder="+7 ___ ___-__-__" required>
-            <button type="submit">Жду звонка</button>
-          </div>
-          <label class="consent">
-            <input type="checkbox" required>
-            <span>Согласен на обработку персональных данных в соответствии с <a href="/privacy.html">политикой конфиденциальности</a>.</span>
-          </label>
-        </form>
-        <div class="disclose">
-          <b>Кто выполняет работы.</b> Электромонтаж выполняет самозанятый мастер Александр Х. (ИНН 000000000000). Договор и оплата — напрямую с мастером, чек выдаётся через приложение «Мой налог». Владелец сайта мастер.ру предоставляет мастеру площадку для размещения информации, работы не выполняет и стороной договора не является.
+
+      <div class="about">
+        <div class="about-row">
+          <span class="k">ФИО</span>
+          <span class="v">Шаныгин Александр Владимирович</span>
+        </div>
+        <div class="about-row">
+          <span class="k">Статус</span>
+          <span class="v">Самозанятый<small>Налог на профессиональный доход. Чек выдаётся через приложение «Мой налог».</small></span>
+        </div>
+        <div class="about-row">
+          <span class="k">ИНН</span>
+          <span class="v">561010298735</span>
+        </div>
+        <div class="about-row">
+          <span class="k">Опыт</span>
+          <span class="v">5 лет электромонтажа<small>Бытовые и силовые щиты, проводка под ключ, штробление, поиск обрывов.</small></span>
+        </div>
+        <div class="about-row">
+          <span class="k">География работ</span>
+          <span class="v">Самара<small>Самарская область — по договорённости, выезд обсуждается отдельно.</small></span>
+        </div>
+        <div class="about-row">
+          <span class="k">Телефон</span>
+          <span class="v"><a href="tel:+79991723085">+7 999 172-30-85</a><small>Ежедневно с 8:00 до 21:00.</small></span>
+        </div>
+        <div class="about-row">
+          <span class="k">Почта</span>
+          <span class="v"><a href="mailto:Ashan6363@yandex.ru">Ashan6363@yandex.ru</a></span>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ФИНАЛ. Формы нет — только звонок. -->
+  <section id="kontakty">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="tick">06</span>
+        <div>
+          <h2>Ждём вашего звонка!</h2>
+          <p class="sec-note">Расскажете, что случилось — договоримся о выезде. Консультация по телефону бесплатная.</p>
+        </div>
+      </div>
+
+      <a class="cta-btn" href="tel:+79991723085">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 013 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>
+        +7 999 172-30-85
+      </a>
+      <p class="cta-hours">Ежедневно с 8:00 до 21:00</p>
+
+      <!-- ЮРИДИЧЕСКИЙ ЩИТ. Не удалять. -->
+      <div class="disclose">
+        <b>Кто выполняет работы.</b> Электромонтаж выполняет самозанятый мастер Шаныгин Александр Владимирович (ИНН 561010298735). Договор и оплата — напрямую с мастером, чек выдаётся через приложение «Мой налог». Владелец сайта мастер-электромонтаж.ру предоставляет мастеру площадку для размещения информации, работы не выполняет и стороной договора не является.
+      </div>
+
     </div>
   </section>
 </main>
@@ -352,28 +417,27 @@
   <div class="wrap">
     <div class="foot">
       <div>
-        <h5>мастер.ру</h5>
-        <p>Электрика для квартир, домов и дач. Частные заказы.<br>Ежедневно с 8:00 до 21:00.</p>
+        <h5>мастер-электромонтаж.ру</h5>
+        <p>Электрика для квартир, домов и дач.<br>Самара и Самарская область.<br>Частные заказы, ежедневно с 8:00 до 21:00.</p>
       </div>
       <div>
         <h5>Связаться</h5>
         <ul>
-          <li><a href="tel:+79000000000">+7 900 000-00-00</a></li>
-          <li><a href="https://wa.me/79000000000" target="_blank" rel="noopener">WhatsApp</a></li>
-          <li><a href="https://vk.com/username" target="_blank" rel="noopener">ВКонтакте</a></li>
-          <li><a href="https://max.ru/username" target="_blank" rel="noopener">MAX</a></li>
-          <li><a href="https://t.me/username" target="_blank" rel="noopener">Telegram</a></li>
+          <li><a href="tel:+79991723085">+7 999 172-30-85</a></li>
+          <li><a href="https://wa.me/79991723085" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://t.me/Alec63" target="_blank" rel="noopener">Telegram</a></li>
+          <li><a href="https://max.ru/u/f9LHodD0cOLOrqc2n9AaIABkcu5p1ibyvwygYl1JheBrgc0J-vX5k294dnk" target="_blank" rel="noopener">MAX</a></li>
+          <li><a href="mailto:Ashan6363@yandex.ru">Ashan6363@yandex.ru</a></li>
         </ul>
       </div>
       <div>
         <h5>Документы</h5>
         <ul>
           <li><a href="/offer.html">Условия использования сайта</a></li>
-          <li><a href="/privacy.html">Политика обработки ПДн</a></li>
         </ul>
       </div>
     </div>
-    <div class="copy">© 2026 мастер.ру · Сайт является информационной площадкой и не оказывает услуги электромонтажа.</div>
+    <div class="copy">© 2026 мастер-электромонтаж.ру · Сайт является информационной площадкой и не оказывает услуги электромонтажа.</div>
   </div>
 </footer>
 </body>

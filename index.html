@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>мастер-электромонтаж.ру — электрик в Самаре: квартиры, дома, дачи</title>
+<title>мастер-электромонтаж.ру — электрик в Самаре: квартиры, дома и другие объекты</title>
 <meta name="description" content="Электромонтаж в Самаре и Самарской области: розетки, щитки, проводка, поиск обрыва. Приедем, посмотрим, назовём цену до начала работ.">
 <link rel="canonical" href="https://мастер-электромонтаж.ру/">
 <meta property="og:title" content="мастер-электромонтаж.ру — электрик в Самаре">
@@ -20,7 +20,7 @@
       "@type": "Electrician",
       "@id": "https://мастер-электромонтаж.ру/#localbusiness",
       "name": "мастер-электромонтаж.ру",
-      "description": "Электромонтаж в Самаре и Самарской области: розетки, щитки, проводка, поиск обрыва. Квартиры, дома и дачи под ключ.",
+      "description": "Электромонтаж в Самаре и Самарской области: розетки, щитки, проводка, поиск обрыва. Квартиры, дома и любые объекты под ключ.",
       "url": "https://мастер-электромонтаж.ру/",
       "telephone": "+79991723085",
       "email": "Ashan6363@yandex.ru",
@@ -44,8 +44,8 @@
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "opens": "08:00",
-        "closes": "21:00"
+        "opens": "07:00",
+        "closes": "22:00"
       },
       "founder": {
         "@type": "Person",
@@ -61,7 +61,7 @@
           {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Установка люстры или светильника"}, "price": "1200", "priceCurrency": "RUB"},
           {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Поиск обрыва или короткого замыкания"}, "price": "2000", "priceCurrency": "RUB"},
           {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Сборка и замена электрощита"}, "price": "6000", "priceCurrency": "RUB"},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Проводка в квартире под ключ"}, "price": "1500", "priceCurrency": "RUB"},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Проводка на объекте под ключ"}, "price": "1500", "priceCurrency": "RUB"},
           {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Штробление стен под проводку"}, "price": "350", "priceCurrency": "RUB"},
           {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Монтаж контура заземления"}, "price": "10000", "priceCurrency": "RUB"},
           {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Выезд и осмотр в пределах Самары"}, "price": "550", "priceCurrency": "RUB"}
@@ -218,6 +218,28 @@
   .work figcaption{margin-top:9px;font-size:13px;color:var(--muted);line-height:1.35;word-wrap:break-word;}
   .shot{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:8px;border:1px solid var(--line);background:var(--panel);}
 
+  .hidden-work { display: none; }
+  .hidden-work.show { display: flex; }
+  .gallery-action { text-align: center; margin-top: 24px; }
+  .btn-more {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 24px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--steel);
+    cursor: pointer;
+    transition: border-color .15s ease, background .15s ease;
+  }
+  .btn-more:hover {
+    border-color: var(--gold);
+    background: var(--gold-wash);
+  }
+
   .steps{display:grid;gap:2px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;}
   @media(min-width:760px){.steps{grid-template-columns:repeat(5,minmax(0,1fr))}}
   .step{background:var(--paper);padding:22px 18px}
@@ -283,7 +305,7 @@
 
     .foot{text-align:center}
     .foot ul{justify-items:center}
-    .copy{text-align:left} /* На мобильных выравниваем многострочный текст по левому краю для удобства чтения */
+    .copy{text-align:left}
   }
 
   @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
@@ -330,12 +352,12 @@
   <div class="hero wrap">
     <div class="eyebrow">Самара и Самарская область</div>
     <h1>Приедем, посмотрим, назовём цену <em>до начала работ</em>.</h1>
-    <p class="lead">Розетки, щитки, проводка, поиск обрыва. Квартиры, дома и дачи в Самаре — это мы берём на себя.</p>
+    <p class="lead">Розетки, щитки, проводка, поиск обрыва. Квартиры, дома, дачи и другие объекты в Самаре — это мы берём на себя.</p>
     <div class="contact-stack">
       <div class="call-plate">
         <span>
           <a class="num" href="tel:+79991723085">+7 999 172-30-85</a>
-          <span class="sub">ЕЖЕДНЕВНО С 8:00 ДО 21:00</span>
+          <span class="sub">ЕЖЕДНЕВНО С 7:00 ДО 22:00</span>
         </span>
         <a class="call-btn" href="tel:+79991723085">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 013 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>
@@ -374,7 +396,7 @@
         <div class="price-row"><span class="name">Установка люстры или светильника</span><span class="dots"></span><span class="val">от 1 200 <small>₽</small></span></div>
         <div class="price-row"><span class="name">Поиск обрыва или короткого замыкания</span><span class="dots"></span><span class="val">от 2 000 <small>₽</small></span></div>
         <div class="price-row"><span class="name">Сборка и замена электрощита</span><span class="dots"></span><span class="val">от 6 000 <small>₽</small></span></div>
-        <div class="price-row"><span class="name">Проводка в квартире под ключ</span><span class="dots"></span><span class="val">от 1 500 <small>₽ / м²</small></span></div>
+        <div class="price-row"><span class="name">Проводка под ключ (квартиры и другие объекты)</span><span class="dots"></span><span class="val">от 1 500 <small>₽ / м²</small></span></div>
         <div class="price-row"><span class="name">Подключение варочной панели, бойлера, духовки</span><span class="dots"></span><span class="val">от 2 500 <small>₽</small></span></div>
         <div class="price-group">Демонтажные работы</div>
         <div class="price-row"><span class="name">Демонтаж старых розеток и выключателей</span><span class="dots"></span><span class="val">от 100 <small>₽ / шт.</small></span></div>
@@ -393,7 +415,7 @@
         <div class="price-row"><span class="name">Установка проходного выключателя (свет из разных мест)</span><span class="dots"></span><span class="val">от 600 <small>₽ / шт.</small></span></div>
         <div class="price-row"><span class="name">Установка диммера (светорегулятора)</span><span class="dots"></span><span class="val">от 600 <small>₽ / шт.</small></span></div>
         <div class="price-group">Заземление и диагностика</div>
-        <div class="price-row"><span class="name">Монтаж контура заземления для частного дома</span><span class="dots"></span><span class="val">от 10 000 <small>₽</small></span></div>
+        <div class="price-row"><span class="name">Монтаж контура заземления</span><span class="dots"></span><span class="val">от 10 000 <small>₽</small></span></div>
         <div class="price-row"><span class="name">Прозвонка кабеля и диагностика сети (проверка фаз, поиск замыканий)</span><span class="dots"></span><span class="val">от 1 000 <small>₽</small></span></div>
         <div class="price-group">Выезд мастера</div>
         <div class="price-row"><span class="name">Выезд и осмотр в пределах Самары</span><span class="dots"></span><span class="val">550 <small>₽</small></span></div>
@@ -417,7 +439,7 @@
         <span class="tick">02</span>
         <div>
           <h2>Кто приедет</h2>
-          <p class="sec-note">Вы заранее знаете имя и лицо человека, который войдёт в вашу квартиру.</p>
+          <p class="sec-note">Вы заранее знаете имя и лицо человека, который приедет к вам на объект.</p>
         </div>
       </div>
 
@@ -427,7 +449,7 @@
           <div>
             <h3>Александр</h3>
             <div class="role">ЭЛЕКТРОМОНТАЖ · 5 ЛЕТ</div>
-            <p>Щиты, проводка под ключ, штробление, поиск обрывов. Берётся и за одну розетку, и за полную переделку электрики в квартире.</p>
+            <p>Щиты, проводка под ключ, штробление, поиск обрывов. Берётся и за одну розетку, и за полный электромонтаж на объекте.</p>
             <div class="inn">Самозанятый · ИНН 561010298735</div>
           </div>
         </article>
@@ -475,6 +497,13 @@
           <img class="shot" src="4.webp" alt="Монтаж бытового щита" loading="lazy">
           <figcaption>Монтаж бытового щита</figcaption>
         </figure>
+        <figure class="work hidden-work" id="work6">
+          <img class="shot" src="6.webp" alt="Выполненные электромонтажные работы" loading="lazy">
+          <figcaption>Пример выполненной работы</figcaption>
+        </figure>
+      </div>
+      <div class="gallery-action">
+        <button class="btn-more" type="button" onclick="document.getElementById('work6').classList.add('show'); this.style.display='none';">Ещё работы</button>
       </div>
     </div>
   </section>
@@ -535,7 +564,7 @@
         </div>
         <div class="about-row">
           <span class="k">Телефон</span>
-          <span class="v"><a href="tel:+79991723085">+7 999 172-30-85</a><small>Ежедневно с 8:00 до 21:00.</small></span>
+          <span class="v"><a href="tel:+79991723085">+7 999 172-30-85</a><small>Ежедневно с 7:00 до 22:00.</small></span>
         </div>
         <div class="about-row">
           <span class="k">Почта</span>
@@ -559,7 +588,7 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 006.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.2.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 013 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .8-.2 1l-2.3 2.2z"/></svg>
         +7 999 172-30-85
       </a>
-      <p class="cta-hours">Ежедневно с 8:00 до 21:00</p>
+      <p class="cta-hours">Ежедневно с 7:00 до 22:00</p>
     </div>
   </section>
 </main>
@@ -569,7 +598,7 @@
     <div class="foot">
       <div>
         <h5>мастер-электромонтаж.ру</h5>
-        <p>Электрика для квартир, домов и дач.<br>Самара и Самарская область.<br>Ежедневно с 8:00 до 21:00.</p>
+        <p>Электрика для квартир, домов и других объектов.<br>Самара и Самарская область.<br>Ежедневно с 7:00 до 22:00.</p>
       </div>
       <div>
         <h5>Связаться</h5>

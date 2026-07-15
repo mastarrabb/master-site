@@ -217,6 +217,7 @@
   .work{display:flex;flex-direction:column;min-width:0;}
   .work figcaption{margin-top:9px;font-size:13px;color:var(--muted);line-height:1.35;word-wrap:break-word;}
   .shot{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:8px;border:1px solid var(--line);background:var(--panel);}
+  #work6 .shot { aspect-ratio: auto; } /* Возвращает оригинальное соотношение сторон и убирает кроп для шестого фото */
 
   .hidden-work { display: none; }
   .hidden-work.show { display: flex; }

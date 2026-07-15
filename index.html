@@ -233,7 +233,7 @@
   .about-row .v a:hover{border-bottom-color:var(--gold)}
   .about-row .v small{display:block;font-weight:400;font-size:14px;color:var(--muted);margin-top:3px}
 
-  .cta-btn{display:inline-flex;align-items:center;gap:9px;padding:12px 22px;border-radius:7px;background:var(--gold);color:#fff;text-decoration:none;font-weight:800;font-size:17px;letter-spacing:-.01em;white-space:nowrap;box-shadow:0 1px 0 var(--gold-deep), 0 6px 18px -10px rgba(0,0,0,.5);transition:background .15s ease, transform .15s ease;}
+  .cta-btn{display:inline-flex;align-items:center;gap:9px;padding:12px 22px;border-radius:7px;background:var(--gold);color:#fff;text-decoration:none;font-weight:800;font-size:17px;letter-spacing:-.01em;white-space:nowrap;transition:background .15s ease, transform .15s ease;}
   .cta-btn:hover{background:#D19E2C;transform:translateY(-1px)}
   .cta-btn:active{transform:translateY(0);background:var(--gold-deep)}
   .cta-btn svg{width:17px;height:17px;fill:#fff}
@@ -247,7 +247,7 @@
   .foot a:hover{text-decoration:underline}
   .foot h5{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--steel);margin-bottom:10px}
   .foot ul{list-style:none;display:grid;gap:7px}
-  .copy{margin-top:32px;padding-top:20px;border-top:1px solid var(--line);font-size:13px}
+  .copy{margin-top:32px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;line-height:1.6;}
 
   @media(max-width:700px){
     :root{--off-logo:0px;--off-eyebrow:0px;--off-h1:0px;--off-lead:0px;--off-plate:0px;--off-chips:0px;--pad:clamp(16px, 5vw, 30px);}
@@ -283,7 +283,7 @@
 
     .foot{text-align:center}
     .foot ul{justify-items:center}
-    .copy{text-align:center}
+    .copy{text-align:left} /* На мобильных выравниваем многострочный текст по левому краю для удобства чтения */
   }
 
   @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
@@ -588,7 +588,13 @@
         </ul>
       </div>
     </div>
-    <div class="copy">© 2026 мастер-электромонтаж.ру · Сайт является информационной площадкой и не оказывает услуги электромонтажа.</div>
+    <div class="copy">
+      © 2026 мастер-электромонтаж.ру<br>
+      Персональный информационный сайт самозанятого мастера Шаныгина Александра Владимировича.<br>
+      Электромонтажные работы в г. Самаре и Самарской области выполняются напрямую исполнителем.<br>
+      ИНН: 561010298735. Специальный налоговый режим «Налог на профессиональный доход».<br>
+      Официальные обращения и претензии потребителей принимаются в письменном виде по адресу электронной почты: Ashan6363@yandex.ru
+    </div>
   </div>
 </footer>
 </body>
